@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Internal\" />
+    <Folder Include="Internal\Http\" />
+    <Folder Include="Internal\Codec\" />
+    <Folder Include="Internal\Object\" />
+    <Folder Include="Internal\Operation\" />
+    <Folder Include="Internal\File\" />
+  </ItemGroup>
+</Project>
