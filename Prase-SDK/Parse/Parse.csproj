@@ -11,5 +11,10 @@
     <Folder Include="Internal\Object\" />
     <Folder Include="Internal\Operation\" />
     <Folder Include="Internal\File\" />
+    <Folder Include="Internal\Json\" />
+    <Folder Include="Internal\Query\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 </Project>

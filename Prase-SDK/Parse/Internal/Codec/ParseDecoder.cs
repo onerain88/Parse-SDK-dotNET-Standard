@@ -1,7 +1,92 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Parse.Internal.Object;
+
 namespace Parse.Internal.Codec {
-    public class ParseDecoder {
-        public ParseDecoder() {
+    public static class ParseDecoder {
+        public static object Decode(object obj) {
+            if (obj is IDictionary dict) {
+                if (dict.Contains("__type")) {
+                    string type = dict["__type"].ToString();
+                    if (type == "Date") {
+                        return DecodeDate(dict);
+                    } else if (type == "Bytes") {
+                        return DecodeBytes(dict);
+                    } else if (type == "Object") {
+                        return DecodeObject(dict);
+                    } else if (type == "Pointer") {
+                        return DecodeObject(dict);
+                    } else if (type == "Relation") {
+                        return DecodeRelation(dict);
+                    } else if (type == "GeoPoint") {
+                        return DecodeGeoPoint(dict);
+                    }
+                }
+                Dictionary<string, object> d = new Dictionary<string, object>();
+                foreach (DictionaryEntry kv in dict) {
+                    string key = kv.Key.ToString();
+                    object value = kv.Value;
+                    d[key] = Decode(value);
+                }
+                return d;
+            } else if (obj is IList list) {
+                List<object> l = new List<object>();
+                foreach (object o in list) {
+                    object v = Decode(o);
+                    l.Add(v);
+                }
+                return l;
+            }
+            return obj;
+        }
+
+        public static DateTime DecodeDate(IDictionary dict) {
+            string str = dict["iso"].ToString();
+            DateTime dateTime = DateTime.Parse(str);
+            return dateTime.ToLocalTime();
+        }
+
+        public static byte[] DecodeBytes(IDictionary dict) {
+            string str = dict["base64"].ToString();
+            byte[] bytes = Convert.FromBase64String(str);
+            return bytes;
+        }
+
+        public static ParseObject DecodeObject(IDictionary dict) {
+            string className = dict["className"].ToString();
+            ParseObject obj = ParseObject.Create(className);
+            ParseObjectData objectData = ParseObjectData.Decode(dict as Dictionary<string, object>);
+            obj.Merge(objectData);
+            return obj;
+        }
+
+        public static ParseRelation<ParseObject> DecodeRelation(IDictionary dict) {
+            ParseRelation<ParseObject> relation = new ParseRelation<ParseObject>();
+            relation.TargetClass = dict["className"].ToString();
+            return relation;
+        }
+
+        public static ParseGeoPoint DecodeGeoPoint(IDictionary data) {
+            double latitude = Convert.ToDouble(data["latitude"]);
+            double longitude = Convert.ToDouble(data["longitude"]);
+            ParseGeoPoint geoPoint = new ParseGeoPoint(latitude, longitude);
+            return geoPoint;
+        }
+
+        public static ParseACL DecodeACL(Dictionary<string, object> dict) {
+            ParseACL acl = new ParseACL();
+            foreach (KeyValuePair<string, object> kv in dict) {
+                string key = kv.Key;
+                Dictionary<string, object> access = kv.Value as Dictionary<string, object>;
+                if (access.TryGetValue("read", out object ra)) {
+                    acl.readAccess[key] = Convert.ToBoolean(ra);
+                }
+                if (access.TryGetValue("write", out object wa)) {
+                    acl.writeAccess[key] = Convert.ToBoolean(wa);
+                }
+            }
+            return acl;
         }
     }
 }
