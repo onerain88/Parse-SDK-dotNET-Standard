@@ -1,9 +1,7 @@
 using NUnit.Framework;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Parse;
 using static NUnit.Framework.TestContext;
 
 namespace Parse.Test {
