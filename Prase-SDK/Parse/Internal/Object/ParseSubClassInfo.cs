@@ -10,7 +10,7 @@ namespace Parse.Internal.Object {
             get;
         }
 
-        Func<ParseObject> Constructor {
+        internal Func<ParseObject> Constructor {
             get;
         }
 

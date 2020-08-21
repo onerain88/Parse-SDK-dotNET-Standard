@@ -14,11 +14,12 @@ namespace Parse.Internal.Http {
     public class ParseHttpClient {
         private readonly string appId;
         private readonly string server;
-        private readonly string masterKey;
 
         private readonly HttpClient client;
 
         public ParseHttpClient(string appId, string server) {
+            this.appId = appId;
+            this.server = server;
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("X-Parse-Application-Id", appId);
@@ -169,7 +170,7 @@ namespace Parse.Internal.Http {
                 return;
             }
 
-            ParseLogger.Debug(ParseHttpUtils.FormatRequest(client, request));
+            ParseLogger.Debug(ParseHttpUtils.FormatRequest(client, request, content));
         }
 
         private static void PrintResponse(HttpResponseMessage response, string content = null) {

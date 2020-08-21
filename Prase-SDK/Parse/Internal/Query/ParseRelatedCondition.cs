@@ -3,11 +3,11 @@ using Parse.Internal.Codec;
 
 namespace Parse.Internal.Query {
     public class ParseRelatedCondition : IParseQueryCondition {
-        readonly LCObject parent;
+        readonly ParseObject parent;
 
         readonly string key;
 
-        public ParseRelatedCondition(LCObject parent, string key) {
+        public ParseRelatedCondition(ParseObject parent, string key) {
             this.parent = parent;
             this.key = key;
         }
