@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Security.Cryptography;
 using Newtonsoft.Json;
 using Parse.Internal.Json;
 
@@ -33,6 +31,7 @@ namespace Parse.Internal.Http {
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Get
             };
+            await FillHeaders(request.Headers, headers);
 
             PrintRequest(client, request);
             HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
@@ -59,6 +58,7 @@ namespace Parse.Internal.Http {
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Post
             };
+            await FillHeaders(request.Headers, headers);
 
             string content = null;
             if (data != null) {
@@ -93,6 +93,7 @@ namespace Parse.Internal.Http {
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Put,
             };
+            await FillHeaders(request.Headers, headers);
 
             string content = null;
             if (data != null) {
@@ -163,6 +164,20 @@ namespace Parse.Internal.Http {
                 ParseLogger.Error(e);
             }
             return new ParseException(code, message);
+        }
+
+        async Task FillHeaders(HttpRequestHeaders headers, Dictionary<string, object> additionalHeaders = null) {
+            // 额外 headers
+            if (additionalHeaders != null) {
+                foreach (KeyValuePair<string, object> kv in additionalHeaders) {
+                    headers.Add(kv.Key, kv.Value.ToString());
+                }
+            }
+            // 当前用户 Session Token
+            ParseUser currentUser = await ParseUser.GetCurrent();
+            if (currentUser != null) {
+                headers.Add("X-Parse-Session-Token", currentUser.SessionToken);
+            }
         }
 
         private static void PrintRequest(HttpClient client, HttpRequestMessage request, string content = null) {
