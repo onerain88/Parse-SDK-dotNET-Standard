@@ -4,17 +4,6 @@ using System.Collections.ObjectModel;
 
 namespace Parse.Test {
     public class ACLTests {
-        [SetUp]
-        public void Setup() {
-            ParseLogger.LogDelegate += Utils.Log;
-            Utils.Init();
-        }
-
-        [TearDown]
-        public void TearDown() {
-            ParseLogger.LogDelegate -= Utils.Log;
-        }
-
         [Test]
         public async Task PrivateReadAndWrite() {
             ParseObject account = new ParseObject("Account");

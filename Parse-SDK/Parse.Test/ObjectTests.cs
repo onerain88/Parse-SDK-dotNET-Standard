@@ -6,17 +6,6 @@ using static NUnit.Framework.TestContext;
 
 namespace Parse.Test {
     public class ObjectTests {
-        [SetUp]
-        public void Setup() {
-            ParseLogger.LogDelegate += Utils.Log;
-            Utils.Init();
-        }
-
-        [TearDown]
-        public void TearDown() {
-            ParseLogger.LogDelegate -= Utils.Log;
-        }
-
         [Test]
         public async Task CreateObject() {
             ParseObject @object = new ParseObject("Hello");

@@ -1,31 +1,35 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Parse.Test {
     public class UserTests {
-        [SetUp]
-        public void Setup() {
-            ParseLogger.LogDelegate += Utils.Log;
-            Utils.Init();
-        }
+        private string username;
 
-        [TearDown]
-        public void TearDown() {
-            ParseLogger.LogDelegate -= Utils.Log;
+        private string password;
+
+        private string email;
+
+        private string mobile;
+
+        [OneTimeSetUp]
+        public void Setup() {
+            long unixTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            username = $"{unixTime}";
+            password = "world";
+            email = $"{unixTime}@qq.com";
+            mobile = $"{unixTime / 100}";
         }
 
         [Test]
+        [Order(0)]
         public async Task SignUp() {
-            ParseUser user = new ParseUser();
-            long unixTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            user.Username = $"{unixTime}";
-            user.Password = "world";
-            string email = $"{unixTime}@qq.com";
-            user.Email = email;
-            string mobile = $"{unixTime / 100}";
-            user.Mobile = mobile;
+            ParseUser user = new ParseUser {
+                Username = username,
+                Password = password,
+                Email = email,
+                Mobile = mobile
+            };
             await user.SignUp();
 
             TestContext.WriteLine(user.Username);
@@ -39,50 +43,48 @@ namespace Parse.Test {
         }
 
         [Test]
+        [Order(1)]
         public async Task Login() {
-            await ParseUser.Login("hello", "world");
+            await ParseUser.Login(username, password);
             ParseUser current = await ParseUser.GetCurrent();
             Assert.NotNull(current.ObjectId);
         }
 
         [Test]
+        [Order(2)]
         public async Task LoginByEmail() {
-            await ParseUser.LoginByEmail("171253484@qq.com", "world");
+            await ParseUser.LoginByEmail(email, password);
             ParseUser current = await ParseUser.GetCurrent();
             Assert.NotNull(current.ObjectId);
         }
 
         [Test]
+        [Order(3)]
         public async Task LoginBySessionToken() {
+            ParseUser currentUser = await ParseUser.Login(username, password);
+            string sessionToken = currentUser.SessionToken;
             await ParseUser.Logout();
-            string sessionToken = "luo2fpl4qij2050e7enqfz173";
             await ParseUser.BecomeWithSessionToken(sessionToken);
             ParseUser current = await ParseUser.GetCurrent();
             Assert.NotNull(current.ObjectId);
         }
 
         [Test]
+        [Order(4)]
         public async Task RelateObject() {
-            ParseUser user = await ParseUser.LoginByMobilePhoneNumber("15101006007", "112358");
+            ParseUser currentUser = await ParseUser.Login(username, password);
             ParseObject account = new ParseObject("Account");
-            account["user"] = user;
+            account["user"] = currentUser;
             await account.Save();
-            Assert.AreEqual(user.ObjectId, "5e0d5c667d5774006a5c1177");
         }
 
         [Test]
+        [Order(5)]
         public async Task IsAuthenticated() {
-            ParseUser currentUser = await ParseUser.Login("hello", "world");
+            ParseUser currentUser = await ParseUser.Login(username, password);
             bool isAuthenticated = await currentUser.IsAuthenticated();
             TestContext.WriteLine(isAuthenticated);
             Assert.IsTrue(isAuthenticated);
-        }
-
-        [Test]
-        public async Task UpdatePassword() {
-            ParseUser currentUser = await ParseUser.Login("hello", "world");
-            await currentUser.UpdatePassword("world", "newWorld");
-            await currentUser.UpdatePassword("newWorld", "world");
         }
     }
 }

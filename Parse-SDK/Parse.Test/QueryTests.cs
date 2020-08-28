@@ -5,17 +5,6 @@ using System.Threading.Tasks;
 
 namespace Parse.Test {
     public class QueryTests {
-        [SetUp]
-        public void Setup() {
-            ParseLogger.LogDelegate += Utils.Log;
-            Utils.Init();
-        }
-
-        [TearDown]
-        public void TearDown() {
-            ParseLogger.LogDelegate -= Utils.Log;
-        }
-
         [Test]
         public async Task BaseQuery() {
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Hello");

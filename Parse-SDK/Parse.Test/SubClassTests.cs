@@ -38,17 +38,6 @@ namespace Parse.Test {
 
         [TestFixture]
         public class SubClassTest {
-            [SetUp]
-            public void SetUp() {
-                ParseLogger.LogDelegate += Utils.Log;
-                Utils.Init();
-            }
-
-            [TearDown]
-            public void TearDown() {
-                ParseLogger.LogDelegate -= Utils.Log;
-            }
-
             [Test]
             public async Task Create() {
                 ParseObject.RegisterSubclass("Account", () => new Account());
