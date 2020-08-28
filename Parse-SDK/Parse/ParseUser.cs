@@ -231,7 +231,7 @@ namespace Parse {
                 throw new ArgumentNullException(nameof(sessionToken));
             }
             Dictionary<string, object> headers = new Dictionary<string, object> {
-                { "X-Parse-Session", sessionToken }
+                { "X-Parse-Session-Token", sessionToken }
             };
             Dictionary<string, object> response = await ParseClient.HttpClient.Get<Dictionary<string, object>>("users/me",
                 headers: headers);
