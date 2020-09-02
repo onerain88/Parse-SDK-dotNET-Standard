@@ -2,12 +2,11 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Parse.Internal.Object;
 using Parse.Internal.File;
 
 namespace Parse {
     public class ParseFile : ParseObject {
-        public const string CLASS_NAME = "_File";
+        public const string CLASS_NAME = "File";
 
         public string Name {
             get {
@@ -45,7 +44,7 @@ namespace Parse {
             }
         }
 
-        readonly byte[] data;
+        readonly Stream stream;
 
         public ParseFile() : base(CLASS_NAME) {
             MetaData = new Dictionary<string, object>();
@@ -53,13 +52,13 @@ namespace Parse {
 
         public ParseFile(string name, byte[] bytes) : this() {
             Name = name;
-            data = bytes;
+            stream = new MemoryStream(bytes);
         }
 
         public ParseFile(string name, string path) : this() {
             Name = name;
             MimeType = ParseMimeTypeMap.GetMimeType(path);
-            data = File.ReadAllBytes(path);
+            stream = new FileStream(path, FileMode.Open);
         }
 
         public ParseFile(string name, Uri url) : this() {
@@ -76,8 +75,12 @@ namespace Parse {
                 // 外链方式
                 await base.Save();
             } else {
-                // TODO 上传文件
-                
+                // 上传文件
+                Dictionary<string, object> ret = await ParseClient.HttpClient.PostStream<Dictionary<string, object>>($"files/{Name}",
+                    stream, onProgress);
+                string url = ret["url"] as string;
+                Url = url;
+                await base.Save();
             }
             return this;
         }

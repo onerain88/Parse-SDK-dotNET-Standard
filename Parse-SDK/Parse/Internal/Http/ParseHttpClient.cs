@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.IO;
 using Newtonsoft.Json;
 using Parse.Internal.Json;
+using Parse.Internal.File;
 
 namespace Parse.Internal.Http {
     public class ParseHttpClient {
@@ -70,6 +72,29 @@ namespace Parse.Internal.Http {
 
             PrintRequest(client, request, content);
             HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            request.Dispose();
+
+            string resultString = await response.Content.ReadAsStringAsync();
+            response.Dispose();
+            PrintResponse(response, resultString);
+
+            if (response.IsSuccessStatusCode) {
+                T ret = JsonConvert.DeserializeObject<T>(resultString,
+                    ParseJsonConverter.Default);
+                return ret;
+            }
+            throw HandleErrorResponse(response.StatusCode, resultString);
+        }
+
+        public async Task<T> PostStream<T>(string path, Stream stream, Action<long, long> onProgress = null) {
+            string url = BuildUrl(path);
+            HttpRequestMessage request = new HttpRequestMessage {
+                RequestUri = new Uri(url),
+                Method = HttpMethod.Post,
+            };
+            request.Content = new ParseProgressableStreamContent(new StreamContent(stream), onProgress);
+            PrintRequest(client, request);
+            HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
             request.Dispose();
 
             string resultString = await response.Content.ReadAsStringAsync();
