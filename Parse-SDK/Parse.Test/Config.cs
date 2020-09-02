@@ -1,11 +1,18 @@
 ﻿using NUnit.Framework;
 using System;
-using Parse;
 
 namespace Parse.Test {
-    public static class Utils {
-        internal static void Init() {
+    [SetUpFixture]
+    public class Config {
+        [OneTimeSetUp]
+        public void SetUp() {
             ParseClient.Initialize("hello", "http://localhost:1337/parse");
+            ParseLogger.LogDelegate += Log;
+        }
+
+        [OneTimeTearDown]
+        public void TearDown() {
+            ParseLogger.LogDelegate -= Log;
         }
 
         internal static void Log(ParseLogLevel level, string info) {
