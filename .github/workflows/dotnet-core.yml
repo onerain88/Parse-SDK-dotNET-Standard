@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
+      uses: ./Parse-SDK
       run: dotnet restore
     - name: Build
+      uses: ./Parse-SDK
       run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
