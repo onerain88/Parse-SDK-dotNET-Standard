@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse", "Parse\Parse.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse.Test", "Parse.Test\Parse.Test.csproj", "{CD6AAE36-6DA7-4744-B1F2-F1119CB47B33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse-Unity", "Parse-Unity\Parse-Unity.csproj", "{3862C87A-A73D-4CE2-8E8C-C0EEDDD234CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{CD6AAE36-6DA7-4744-B1F2-F1119CB47B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD6AAE36-6DA7-4744-B1F2-F1119CB47B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD6AAE36-6DA7-4744-B1F2-F1119CB47B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3862C87A-A73D-4CE2-8E8C-C0EEDDD234CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3862C87A-A73D-4CE2-8E8C-C0EEDDD234CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3862C87A-A73D-4CE2-8E8C-C0EEDDD234CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3862C87A-A73D-4CE2-8E8C-C0EEDDD234CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
