@@ -1,0 +1,125 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Parse\Internal\Operation\ParseNumberOperation.cs">
+      <Link>Internal\Operation\ParseNumberOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseAddRelationOperation.cs">
+      <Link>Internal\Operation\ParseAddRelationOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\IParseOperation.cs">
+      <Link>Internal\Operation\IParseOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseAddOperation.cs">
+      <Link>Internal\Operation\ParseAddOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseRemoveRelationOperation.cs">
+      <Link>Internal\Operation\ParseRemoveRelationOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseRemoveOperation.cs">
+      <Link>Internal\Operation\ParseRemoveOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseDeleteOperation.cs">
+      <Link>Internal\Operation\ParseDeleteOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseAddUniqueOperation.cs">
+      <Link>Internal\Operation\ParseAddUniqueOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Operation\ParseSetOperation.cs">
+      <Link>Internal\Operation\ParseSetOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\File\ParseMimeTypeMap.cs">
+      <Link>Internal\File\ParseMimeTypeMap.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\File\ParseFileUploader.cs">
+      <Link>Internal\File\ParseFileUploader.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\File\ParseProgressableStreamContent.cs">
+      <Link>Internal\File\ParseProgressableStreamContent.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Codec\ParseDecoder.cs">
+      <Link>Internal\Codec\ParseDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Codec\ParseEncoder.cs">
+      <Link>Internal\Codec\ParseEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Json\ParseJsonConverter.cs">
+      <Link>Internal\Json\ParseJsonConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Object\ParseSubClassInfo.cs">
+      <Link>Internal\Object\ParseSubClassInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Object\ParseBatch.cs">
+      <Link>Internal\Object\ParseBatch.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Object\ParseObjectData.cs">
+      <Link>Internal\Object\ParseObjectData.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Http\ParseHttpUtils.cs">
+      <Link>Internal\Http\ParseHttpUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Http\ParseHttpClient.cs">
+      <Link>Internal\Http\ParseHttpClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Query\ParseOperationCondition.cs">
+      <Link>Internal\Query\ParseOperationCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Query\ParseEqualCondition.cs">
+      <Link>Internal\Query\ParseEqualCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Query\ParseCompositionCondition.cs">
+      <Link>Internal\Query\ParseCompositionCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Query\IParseQueryCondition.cs">
+      <Link>Internal\Query\IParseQueryCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Internal\Query\ParseRelatedCondition.cs">
+      <Link>Internal\Query\ParseRelatedCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseFile.cs">
+      <Link>Public\ParseFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseGeoPoint.cs">
+      <Link>Public\ParseGeoPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseException.cs">
+      <Link>Public\ParseException.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseRelation.cs">
+      <Link>Public\ParseRelation.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseACL.cs">
+      <Link>Public\ParseACL.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseQuery.cs">
+      <Link>Public\ParseQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseUser.cs">
+      <Link>Public\ParseUser.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseCloud.cs">
+      <Link>Public\ParseCloud.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseLogger.cs">
+      <Link>Public\ParseLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseClient.cs">
+      <Link>Public\ParseClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseObject.cs">
+      <Link>Public\ParseObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Parse\Public\ParseRole.cs">
+      <Link>Public\ParseRole.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
