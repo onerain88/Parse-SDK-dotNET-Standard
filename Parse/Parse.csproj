@@ -13,6 +13,7 @@
     <Folder Include="Internal\File\" />
     <Folder Include="Internal\Json\" />
     <Folder Include="Internal\Query\" />
+    <Folder Include="Public\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
