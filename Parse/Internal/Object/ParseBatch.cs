@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Parse.Internal.Object {
+namespace ParseSDK.Internal.Object {
     public class ParseBatch {
         internal HashSet<ParseObject> objects;
 

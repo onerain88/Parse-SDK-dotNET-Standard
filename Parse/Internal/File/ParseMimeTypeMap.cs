@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Collections.Generic;
 
-namespace Parse.Internal.File {
+namespace ParseSDK.Internal.File {
     public static class ParseMimeTypeMap {
         static readonly Dictionary<string, string> MIMETypesDictionary = new Dictionary<string, string> {
             { "ai", "application/postscript" },

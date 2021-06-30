@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Parse {
+namespace ParseSDK {
     public enum ParseLogLevel {
         Debug,
         Warn,

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseException : Exception {
         public int Code {
             get;

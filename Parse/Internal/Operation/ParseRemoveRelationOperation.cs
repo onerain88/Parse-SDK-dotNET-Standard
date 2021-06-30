@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public class ParseRemoveRelationOperation : IParseOperation {
         List<ParseObject> valueList;
 

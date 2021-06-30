@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using static NUnit.Framework.TestContext;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     public class ObjectTests {
         [Test]
         public async Task CreateObject() {

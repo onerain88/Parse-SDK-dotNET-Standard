@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Parse.Internal.Operation;
-using Parse.Internal.Query;
+using ParseSDK.Internal.Operation;
+using ParseSDK.Internal.Query;
 
-namespace Parse.Internal.Codec {
+namespace ParseSDK.Internal.Codec {
     public static class ParseEncoder {
         public static object Encode(object obj) {
             if (obj is DateTime dateTime) {

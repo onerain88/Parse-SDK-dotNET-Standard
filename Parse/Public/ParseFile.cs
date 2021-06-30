@@ -2,9 +2,9 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Parse.Internal.File;
+using ParseSDK.Internal.File;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseFile : ParseObject {
         public const string CLASS_NAME = "File";
 

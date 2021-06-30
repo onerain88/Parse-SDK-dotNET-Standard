@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Parse.Internal.Json {
+namespace ParseSDK.Internal.Json {
     public class ParseJsonConverter : JsonConverter {
         public override bool CanConvert(Type objectType) {
             return objectType == typeof(object);

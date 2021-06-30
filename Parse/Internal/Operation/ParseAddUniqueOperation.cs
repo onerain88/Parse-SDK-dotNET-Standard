@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public class ParseAddUniqueOperation : IParseOperation {
         internal HashSet<object> values;
 

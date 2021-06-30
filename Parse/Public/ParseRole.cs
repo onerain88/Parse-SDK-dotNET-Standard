@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseRole : ParseObject {
         public const string CLASS_NAME = "_Role";
 

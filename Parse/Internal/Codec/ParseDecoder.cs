@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Parse.Internal.Object;
+using ParseSDK.Internal.Object;
 
-namespace Parse.Internal.Codec {
+namespace ParseSDK.Internal.Codec {
     public static class ParseDecoder {
         public static object Decode(object obj) {
             if (obj is IDictionary dict) {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     public class ExceptionTests {
         [Test]
         public void LeanCloudException() {

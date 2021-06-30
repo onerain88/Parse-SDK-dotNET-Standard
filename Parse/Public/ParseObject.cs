@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Parse.Internal.Object;
-using Parse.Internal.Operation;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Object;
+using ParseSDK.Internal.Operation;
+using ParseSDK.Internal.Codec;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseObject {
         ParseObjectData data;
 

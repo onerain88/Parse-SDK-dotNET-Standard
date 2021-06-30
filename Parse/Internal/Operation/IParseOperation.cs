@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public interface IParseOperation {
         IParseOperation MergeWithPrevious(IParseOperation previousOp);
 

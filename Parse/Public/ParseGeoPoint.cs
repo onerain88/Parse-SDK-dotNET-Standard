@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Parse {
+namespace ParseSDK {
     public class ParseGeoPoint {
         public double Latitude {
             get;

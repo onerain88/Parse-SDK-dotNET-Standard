@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Parse.Internal.Object;
+using ParseSDK.Internal.Object;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseUser : ParseObject {
         public const string CLASS_NAME = "_User";
 

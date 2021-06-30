@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Parse.Internal.Object {
+namespace ParseSDK.Internal.Object {
     public class ParseSubClassInfo {
         public string ClassName {
             get;

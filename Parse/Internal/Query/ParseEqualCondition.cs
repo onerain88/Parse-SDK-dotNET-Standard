@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Query {
+namespace ParseSDK.Internal.Query {
     public class ParseEqualCondition : IParseQueryCondition {
         private readonly string key;
 

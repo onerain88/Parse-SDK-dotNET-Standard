@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public class ParseNumberOperation : IParseOperation {
         static readonly IDictionary<Tuple<Type, Type>, Func<object, object, object>> adders;
 

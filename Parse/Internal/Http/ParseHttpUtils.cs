@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Http;
 
-namespace Parse.Internal.Http {
+namespace ParseSDK.Internal.Http {
     public static class ParseHttpUtils {
         public static string FormatRequest(HttpClient client, HttpRequestMessage request, string content = null) {
             if (client == null) {

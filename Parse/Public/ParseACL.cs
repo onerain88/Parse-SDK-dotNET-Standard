@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseACL {
         const string PublicKey = "*";
 

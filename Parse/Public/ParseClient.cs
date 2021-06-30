@@ -1,7 +1,7 @@
 ﻿using System;
-using Parse.Internal.Http;
+using ParseSDK.Internal.Http;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseClient {
         private static string appId;
 

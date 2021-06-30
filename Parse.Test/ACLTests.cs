@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     public class ACLTests {
         [Test]
         public async Task PrivateReadAndWrite() {

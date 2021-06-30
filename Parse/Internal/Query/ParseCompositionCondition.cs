@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Query {
+namespace ParseSDK.Internal.Query {
     public class ParseCompositionCondition : IParseQueryCondition {
         public const string And = "$and";
         public const string Or = "$or";

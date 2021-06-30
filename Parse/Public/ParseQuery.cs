@@ -4,10 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Parse.Internal.Query;
-using Parse.Internal.Object;
+using ParseSDK.Internal.Query;
+using ParseSDK.Internal.Object;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseQuery {
         public string ClassName {
             get; internal set;

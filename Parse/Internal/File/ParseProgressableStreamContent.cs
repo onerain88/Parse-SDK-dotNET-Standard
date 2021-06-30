@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Parse.Internal.File {
+namespace ParseSDK.Internal.File {
     public class ParseProgressableStreamContent : HttpContent {
         const int defaultBufferSize = 5 * 4096;
 

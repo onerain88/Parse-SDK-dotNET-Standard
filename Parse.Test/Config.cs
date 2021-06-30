@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     [SetUpFixture]
     public class Config {
         [OneTimeSetUp]

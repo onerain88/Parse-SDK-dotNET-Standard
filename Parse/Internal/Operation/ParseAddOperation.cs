@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public class ParseAddOperation : IParseOperation {
         internal List<object> valueList;
 

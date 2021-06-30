@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     public class SubClassTests {
         internal class Hello : ParseObject {
             internal World World => this["objectValue"] as World;

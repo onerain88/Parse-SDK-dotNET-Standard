@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Parse {
+namespace ParseSDK {
     public class ParseRelation<T> where T : ParseObject {
         public string Key {
             get; set;

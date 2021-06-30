@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse {
+namespace ParseSDK {
     public static class ParseCloud {
         public static async Task<Dictionary<string, object>> Run(string name,
             Dictionary<string, object> parameters = null) {

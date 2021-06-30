@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parse.Test {
+namespace ParseSDK.Test {
     public class FileTests {
         [Test]
         public async Task SaveFromPath() {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Parse.Internal.Codec;
+using ParseSDK.Internal.Codec;
 
-namespace Parse.Internal.Object {
+namespace ParseSDK.Internal.Object {
     public class ParseObjectData {
         public string ClassName {
             get; set;

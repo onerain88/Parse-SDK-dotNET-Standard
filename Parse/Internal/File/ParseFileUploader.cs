@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Parse.Internal.File {
+namespace ParseSDK.Internal.File {
     public class ParseFileUploader {
         public ParseFileUploader() {
         }

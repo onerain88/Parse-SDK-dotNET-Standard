@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Parse.Internal.Operation {
+namespace ParseSDK.Internal.Operation {
     public class ParseDeleteOperation : IParseOperation {
         internal ParseDeleteOperation() {
         }

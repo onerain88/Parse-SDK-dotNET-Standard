@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.IO;
 using Newtonsoft.Json;
-using Parse.Internal.Json;
-using Parse.Internal.File;
+using ParseSDK.Internal.Json;
+using ParseSDK.Internal.File;
 
-namespace Parse.Internal.Http {
+namespace ParseSDK.Internal.Http {
     public class ParseHttpClient {
         private readonly string appId;
         private readonly string server;
