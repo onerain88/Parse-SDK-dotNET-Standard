@@ -28,3 +28,4 @@ jobs:
         PROJECT_FILE_PATH: Parse/Parse.csproj
         VERSION_REGEX: ^\s*<ReleaseVersion>(.*)<\/ReleaseVersion>\s*$
         PACKAGE_NAME: Parse-SDK
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
