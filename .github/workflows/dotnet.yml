@@ -34,7 +34,7 @@ jobs:
       uses: pCYSl5EDgo/create-unitypackage@master
       with:
         package-path: 'releases/parse-sdk.unitypackage'
-        include-files: 'Parse-Unity/bin/Release/netstandard2.0/'
+        include-files: 'Parse-Unity/bin/Debug/netstandard2.0/'
     - uses: actions/upload-artifact@master
       with:
         path: releases
