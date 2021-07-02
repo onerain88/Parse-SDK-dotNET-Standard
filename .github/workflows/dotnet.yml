@@ -31,7 +31,7 @@ jobs:
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - run: |
         echo "Parse-UnityProject/Assets/Scenes.meta" > metaList
-        find Parse-UnityProject/Assets/Scenes/ -name \*.meta >> metaList
+        find Parse-UnityProject/Assets/Scenes -name \*.meta >> metaList
     - run: mkdir releases
     - name: publish unitypackage
       uses: pCYSl5EDgo/create-unitypackage@master
