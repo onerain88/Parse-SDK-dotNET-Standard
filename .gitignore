@@ -354,3 +354,10 @@ MigrationBackup/
 Samples/UnitySample/Library
 Samples/UnitySample/Packages
 Samples/UnitySample/Temp
+
+Parse-UnityProject/Library
+Parse-UnityProject/Logs
+Parse-UnityProject/Packages
+
+
+
