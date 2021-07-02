@@ -39,4 +39,3 @@ jobs:
       with:
         path: releases
         name: package
-        name: package
