@@ -29,3 +29,14 @@ jobs:
         VERSION_REGEX: ^\s*<ReleaseVersion>(.*)<\/ReleaseVersion>\s*$
         PACKAGE_NAME: ParseSDK
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - run: mkdir releases
+    - name: publish unitypackage
+      uses: pCYSl5EDgo/create-unitypackage@master
+      with:
+        package-path: 'releases/parse-sdk.unitypackage'
+        include-files: 'Parse-Unity/bin/Release/netstandard2.0/'
+    - uses: actions/upload-artifact@master
+      with:
+        path: releases
+        name: package
+        name: package
