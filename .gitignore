@@ -358,6 +358,6 @@ Samples/UnitySample/Temp
 Parse-UnityProject/Library
 Parse-UnityProject/Logs
 Parse-UnityProject/Packages
-
+!Parse-UnityProject/Assets/**/*.meta
 
 
